@@ -107,6 +107,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return  db.delete(TABLE_NAME, " ID = ?",new  String[]{ID});
     }
 
+    public Cursor StudentInformation(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
-
+        Cursor StudentInformation = db.query(TABLE_NAME, new String[]{col_Full_Names, col_Surname, col_Nationality, col_Gender, col_Language, col_Contacts, col_Next_Of_Kin, col_Next_Of_Kin_Contacts, col_Email, col_Physical_Address, col_Grade}, col_Full_Names + " like? ", new String[]{String.valueOf(id)}, null, null, null, null);
+        if (StudentInformation != null) {
+            StudentInformation.moveToFirst();
+        }
+        return StudentInformation;
+    }
+    
 }

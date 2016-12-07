@@ -14,7 +14,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:background="#FEFFE4"
     tools:context="com.example.admin.mynewreport.StudentInformation">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search"/>
 
     <EditText
 
@@ -136,5 +142,6 @@
     </LinearLayout>
 </LinearLayout>
 </ScrollView>
+
 
 

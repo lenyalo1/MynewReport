@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,9 @@ public class StudentInformation extends AppCompatActivity {
             editText_Next_Of_Kin,editText_Next_Of_Kin_Contacts,
             editText_Email,editText_Physical_Address,editText_Grade;
     Button btn_InsertData,btn_View,btn_Update,btn_Delete;
+
     DatabaseHelper db;
+    private android.widget.SearchView SearchView;
 
 
     @Override
@@ -39,6 +42,10 @@ public class StudentInformation extends AppCompatActivity {
         editText_Email=(EditText)findViewById(R.id.edit_Email);
         editText_Physical_Address=(EditText)findViewById(R.id.edit_Physical_Address);
         editText_Grade=(EditText)findViewById(R.id.edit_Grade);
+
+
+        SearchView = (android.widget.SearchView)findViewById(R.id.search);
+
 
 
         //casting the Buttons
@@ -160,5 +167,25 @@ public class StudentInformation extends AppCompatActivity {
             }
         });
     }
+    public boolean onQueryTextSubmit(String query) {
 
+        int id = Integer.parseInt(query);
+        Cursor c = db.StudentInformation(id);
+        if(c.getCount()> 0) {
+            editText_Id.setText(c.getString(c.getColumnIndex("ID")));
+            editText_Full_Names.setText(c.getString(c.getColumnIndex("FULL_NAMES")));
+            editText_Surname.setText(c.getString(c.getColumnIndex("SURNAME")));
+            editText_Nationality.setText(c.getString(c.getColumnIndex("NATIONALITY")));
+            editText_Gender.setText(c.getString(c.getColumnIndex("GENDER")));
+            editText_Language.setText(c.getString(c.getColumnIndex("LANGUAGE")));
+            editText_Contacts.setText(c.getString(c.getColumnIndex("CONTACTS")));
+            editText_Next_Of_Kin.setText(c.getString(c.getColumnIndex("NEXT_OF_KIN")));
+            editText_Next_Of_Kin_Contacts.setText(c.getString(c.getColumnIndex("NEXT_OF_KIN_CONTACTS")));
+            editText_Email.setText(c.getString(c.getColumnIndex("EMAIL")));
+            editText_Physical_Address.setText(c.getString(c.getColumnIndex("PHYSICAL_ADDRESS")));
+            editText_Grade.setText(c.getString(c.getColumnIndex("GRADE")));
+            return true;
+        }
+        return false;
+    }
 }

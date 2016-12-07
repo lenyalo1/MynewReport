@@ -11,7 +11,17 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:background="#FEFFE4"
     tools:context="com.example.admin.mynewreport.MainActivity">
+
+
+
+<ImageView
+    android:layout_width="246dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/report2"
+    android:padding="8dp"/>
+
 
     <EditText
 
@@ -19,9 +29,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Name"
-        android:ems="10" >
+        android:ems="10"
+        android:padding="@dimen/activity_vertical_margin">
 
         <requestFocus />
+
+
     </EditText>
 
 
@@ -30,8 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:padding="@dimen/activity_vertical_margin"
         android:inputType="textPassword"
         android:hint="Password" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -47,7 +62,11 @@
             android:text="Sign In"
             android:onClick="signIn"/>
 
-
-
     </LinearLayout>
 </LinearLayout>
+
+
+
+
+
+
